@@ -1,6 +1,7 @@
 package com.example.weatherforecast;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,12 +57,10 @@ public class WordListAdapter extends RecyclerView.Adapter<WordListAdapter.WordVi
 
             int mPosition = getLayoutPosition();
             String element = mWordList.get(mPosition);
-            mWordList.set(mPosition,element+" clicked!");
-            mAdapter.notifyDataSetChanged();
-
-
-
-
+            Context context=view.getContext();
+            Intent intent=new Intent(context,DetailActivity.class);
+            intent.putExtra("data",element);
+            context.startActivity(intent);
 
 
 
